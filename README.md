@@ -1,4 +1,4 @@
-Slides: What Every Gangster Should Know About Functional Programming
+Slides: Model Checking V - t snares 
 ===================================================================
 
 Keybindings:
@@ -8,10 +8,6 @@ Keybindings:
 
 Inspirations and thanks 
 ====================================================================
-
-This presentation is mixture of dr. erik meijer lectures ,
-research paper why functional progmming matters and many different
-blends to build an introductory presentation .
 
 Bodil main presentation "what every hipster should know about func
 prog "is configured for this presentaion with neat handwriting .

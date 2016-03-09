@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+
+		<head>
+				<meta charset="utf-8"/>
+
+				<title>What Every Gangster Should Know About Functional Programming</title>
+
+				<meta name="description" content="What Every Hipster Should Know About Functional Programming"/>
+				<meta name="author" content="NEWTON" />
+
+				<meta name="apple-mobile-web-app-capable" content="yes" />
+				<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+				<link rel="stylesheet" href="css/reveal.min.css"/>
+				<link rel="stylesheet" href="css/theme/hipster.css" id="theme"/>
+
+				<!-- For syntax highlighting -->
+				<link rel="stylesheet" href="lib/css/tomorrow-night-eighties.css"/>
+
+				<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+				<script>
+						document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+				</script>
+
+		</head>
+
+		<body>
+
+				<div class="reveal">
+
+						<!-- Any section element inside of this container is displayed as a slide -->
+						<div class="slides">
+
+
+								<section>
+										<img src="m/twilight-sparkle.jpg" height="450" width ="550"/>
+							
+										<p> ♥ Model Checking
+ & Verification</p>
+								</section>
+								
+								
+								<section>
+										<img class="plain" src="m/and-now-haskell.png"/>
+										<div class="pic-label bigger">
+                                         Thanks  ♥ Giving
+										</div>
+								</section>
+								
+         <section>
+			 										<img class="plain" src="m/1.jpg" height="320" width ="450"/>
+                                        
+										<div class="pic-label small">
+                                       Mukund Thattai
+										</div>
+										<img class="plain" src="m/2.png" height="200" width ="200"/>
+										<img class="plain" src="m/3.jpg" height="200" width ="200"/>
+                                        
+										<div class="pic-label small">
+                                       Mandayam.S     .  Somya Mani
+
+										</div>
+										
+                                        
+										
+								</section>
+
+								
+      <section>
+     
+										<pre class="repl">
+							▹ Overview Of the Presentation :<code>
+            1. Formal Methods
+                        
+            2. Model checking and verification
+
+            3. CBMC , Color Problem 
+                        
+            4. Current Project
+            
+            5. Results
+ </code> </pre>
+
+</section>
+        
+        
+	<section>
+										<img src="m/talk.jpg"/>
+          
+								</section>
+								
+								<section>
+								<p>Formal Methods</p>
+									<pre class="repl"><code>
+▹ Definition :
+  
+  "Formal methods are a particular kind of mathematically 
+   based techniques for the specification, development and 
+   Verification of software and hardware systems."
+                
+▹ Use :
+   
+   To check whether a system behaves correctly with
+   respect to some Specification, of its desired behavior.
+</code>	</pre>
+										
+            
+            
+         
+										
+								</section>
+        
+        
+        
+								<section>
+								<p>Spectrum</p>
+<pre class="repl"><code>
+Powerful frameworks such as  :
+
+    1. Hoare logic
+    2. Algebraic specification languages
+    3. Modal logics
+    4. Denotational semantics.
+</code></pre>
+
+<pre><code>
+Lightweight formal methods :
+
+    1. Model checkers
+    2. Run-time monitoring
+    3. Type systems
+</code>
+</pre>
+      						</section>
+		  
+										
+					
+					<section>	
+                        
+                       
+                        <img class="plain" src="m/c.jpg"/>
+										
+                       
+                        </section>
+                        <section>
+										<img class="plain" src="m/vindaloo.jpg"/>
+										<div class="pic-label bigger">
+												Model Checking
+										</div>
+								</section>
+                        
+                        <section>				
+<pre><code>Model Checking and Verification </code></pre>
+		
+        <pre><code> * The verification problem is:
+   
+  Given program M and specification h determine
+  whether or not the behavior of M meets the
+  Specification h.
+        </code></pre>			
+ <pre>
+     * Model Checking:
+ Model checking is a method for automatic (and algorithmic)
+ Verification of finite state systems.
+ 
+ Goal : Expand the scope of automated techniques
+        for program reasoning.
+ 
+</pre>
+										</section>
+
+<section>
+<pre><code>Bounded Model Checking with SAT</code></pre>
+<pre><code>
+ Given a Boolean formula (propositional logic formula), 
+ Find a variable assignment such that the formula evaluates
+ to True or prove that no such assignment exists.
+
+ F = (a + b).(a’ + b’ + c)
+
+ For n variables, there are 2 ^ n possible truth assignments
+ to be checked.
+</code></pre>
+
+<pre>
+  First established NP-Complete problem.
+ - S. A. Cook, Third Annual ACM Symp. 
+  on the Theory of Computing,1971, 151-158
+
+</pre>
+</section>
+<section>
+<img class="plain" src="m/f2.jpg"/>
+</section>
+
+
+<section>
+<pre><code>
+Model checkers typically have three main components: 
+
+(1) A Specification language, based on propositional TL
+(2) A way of encoding a state machine representing 
+    The system to be verified, and 
+(3) A Verification procedure that uses an intelligent
+    Exhaustive search of the state space to determine 
+    if the specification is true or not.
+    
+</pre></code>
+
+<pre>
+ If the specification is not satisfied, then most model
+ checkers will produce a counterexample execution trace
+ that shows why the specification does not hold.
+ 
+ The counterexamples are invaluable in debugging
+ complex systems.
+</pre>
+</section>
+
+    
+
+
+<section>
+<pre><code>Bug Catching with SAT-Solvers</code><img  src="m/e.png"/></pre>
+</section>
+
+<section>
+    <p>CBMC</p>
+<pre><code>
+    CBMC is a Bounded Model Checker for C and C++ programs.
+
+    It allows verifying array bounds (buffer overflows), 
+    pointer safety, ex­cep­tions & user-specified as­ser­tions.
+    
+    The verification is performed by unwinding the loops 
+    in the program and passing the re­sul­ting equation to
+    a decision procedure.
+
+
+</code></pre>
+
+</section>
+<section>
+<pre><code>
+Algorithm DPLL
+  Input: A set of clauses Φ.
+  Output: A Truth Value.
+</code></pre>
+<pre><code>function DPLL(Φ)
+   if Φ is a consistent set of literals
+       then return true;
+   if Φ contains an empty clause
+       then return false;
+   for every unit clause l in Φ
+      Φ ← unit-propagate(l, Φ);
+   for every literal l that occurs pure in Φ
+      Φ ← pure-literal-assign(l, Φ);
+   l ← choose-literal(Φ);
+   return DPLL(Φ ∧ l) or DPLL(Φ ∧ not(l));
+</code></pre>
+</section>
+
+<section>
+    <pre>History of the SAT Problem :</pre>
+<pre><code>
+• Davis Putnam - Resolution based, 1960, 
+  later Search based algorithm, 1962
+  
+• Proved NP Complete by Cook, 1971
+
+• Stalmarcks algorithm - Patented, 1995
+
+• Conflict driven Learning and Non chronological 
+  backtracking in GRASP, 1996
+
+• Local Search, 1997
+
+• SATO - DPLL Based, 1997
+
+• Chaff - DPLL Based, 2001
+
+• BerkMin - DPLL Based, 2002
+
+</code></pre>
+</section>            
+<section>
+										<img class="plain" src="m/rarity.jpg"/>
+										<div class="pic-label bigger">
+												Programming
+										</div>
+								</section>
+
+<section>
+     
+										<pre class="repl">
+							▹ In Java:<code>
+					total = 0;
+					for (i = 1; i <= 10; ++i) {
+					    total = total + i;
+					    }</code>
+						▹ In Haskell:<code >
+         sum [1..10] </code></pre>
+</section>
+
+<section>
+<p>Qicksort in C</p>
+
+    <pre class = "repl"><code>void qsort(int a[], int lo, int h ){
+																	int h, l, p, t;
+																	if (lo < hi) {
+																					l = lo;
+																					h = hi;
+																					p = a[hi];
+																					do {
+																							while ((l < h) && (a[l] <= p))
+																	           l = l+1;
+																	       while ((h > l) && (a[h] >= p))
+																	           h = h-1;
+																       	if (l < h) {
+																              	t = a[l];
+																	             a[l] = a[h];
+																	             a[h] = t; }
+								} while (l < h);
+        a[hi] = a[l];
+        a[l] = p;
+        qsort( a, lo, l-1 );
+        qsort( a, l+1, hi );     
+     } 
+  }	  </code></pre>
+     
+
+</section>					
+
+<section>
+<p> ♥ Qicksort in haskell  ♥</p>
+
+
+         <pre class = "repl"><code>
+         qsort [] = []
+         qsort (x:xs) = qsort ys ++ [x] ++ qsort zs
+                        where 
+                           ys = [y | y <- xs, y <= x]
+                           zs = [z | z <- xs, z > x]           </code>
+         </pre>								
+								</section>
+<section>								<img class="plain" src="m/derpy.jpg" height="600" width ="820"/>
+										<div class="pic-label big">
+							 N Color Problem
+										</div>
+								</section>
+
+<section>
+          <img class="plain" src="m/fluttershy-2.jpg"/>
+          <div class="pic-label big">
+            Current Project
+          </div>
+        </section>  
+          
+			<section>
+			<pre class="context"><code><b>SETUP :</b>					♥ Compartments Represnted by Nodes in the graph.
+			  Edges will represent vesicle leaving from 
+			  source to target compartment.
+			  
+			♥ Interaction Matrix [M][M] : Vsnares Depenednt 
+			  on Tsnares & OnOffMatrix[N][M] which Tsnare 
+			  is active on Node.
+			 
+			♥ The Whole System should be in Steady State.
+			 
+			♥ Certain rules has to be followed in order for
+			  buddying to happen.</pre></code>
+			</section>
+								<section>
+									
+										<pre class="context"><code> The V-T Snare Traffic Model :
+				Input  : Graph with allowed Parallel Edges.
+				OutPut : Assignments to nodes and edges that satisfy
+				         below Rules and system is in steady state.
+				 						
+         1. At least One V snare on edge has to be a 
+                candidate to incorporate budding to happen.
+             
+         2. Corresponding T snares Has to be present
+                 in ON-State on Target Compartment.
+             
+         3. Budding should respect the Graph structure.
+                (disallow other non-existing edges).</code></pre></section>
+
+								
+
+								<section>
+										<pre class="context"><code>  
+									Basic Vesical Traffic Model is
+									equivalent to a 3 connected Graph.
+									
+											Conjecture :
+										    
+										      " All graphs that Satisfy these rules are
+										         at least <b>Two Strongly connected</b>."
+										         
+    So I have to find a 3-connected and Scg
+    that is not two strongly connected that satisfy 
+    the constraints.  </code></pre>
+
+
+										
+								</section>
+								
+								<section>
+										<pre class="context"><code>  
+									Arbitary boolean Function Conjecture :
+										    
+										" Strongly connected and Three connected graphs 
+										  condition is enough to satisfy the new rules."
+										         
+   So I have to find a 3 strongly connected graph 
+   that is not two strongly connected that does't 
+   satisfy the constraints even if arbitary boolean 
+   function is allowed to be used.  
+
+					</code></pre>
+
+
+										
+								</section>
+								
+								<section>
+	  <img class="plain" src="m/22.jpg" height="600" width ="820"/>
+	  <div class="pic-label big">
+            Results 
+          </div>
+  </section>
+								
+								
+<section>
+										<pre class="context"><code>  
+									
+					" NO VOILATIONS FOR BOTH THE CONJECTURE TILL YET."
+					
+					1. First Conjecture have been checked for all 
+					   graphs possible for certain N and thereafter
+					   taking graph as input.
+					
+					2. Arbitary Boolean function conjecture has been 
+					   checked only for taking graph as input.
+										         
+					</code></pre>
+										
+								</section>
+								
+  <section>
+	  <img class="plain" src="m/12.jpg"/>
+	  <div class="pic-label big">
+            Future Work
+          </div>
+  </section>
+  
+  
+   <section>
+	  <img class="plain" src="m/45.gif" height="570" width ="870"/>
+  </section>
+  
+  <!--
+  <section>
+	  <img class="plain" src="m/13.jpg"/>
+	  <div class="pic-label big">
+            Future Work
+          </div>
+  </section>	
+    <section>
+	  <img class="plain" src="m/44.gif" height="570" width ="870"/>
+  </section>							
+
+
+								<section>
+										<img class="plain" src="m/wat.jpg"/>
+								</section>
+								
+
+						</div>
+-->
+				</div>
+
+				<script src="lib/js/head.min.js"></script>
+				<script src="js/reveal.js"></script>
+
+				<script type="text/javascript">
+
+						// Full list of configuration options available here:
+						// https://github.com/hakimel/reveal.js#configuration
+						Reveal.initialize({
+								controls: false,
+								progress: false,
+								history: true,
+								center: true,
+								mouseWheel: true,
+								rollingLinks: false,
+
+								theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+								transition: Reveal.getQueryHash().transition || 'zoom', // default/cube/page/concave/zoom/linear/none
+
+								// Optional libraries used to extend on reveal.js
+								dependencies: [
+										{ src: 'lib/js/underscore.js', async: true, condition: function() { return true; } },
+										{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+										{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+										{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+										{ src: 'plugin/prettify/prettify.js', async: true, callback: function() {
+												var i, els = document.querySelectorAll("code"), l = els.length, el;
+												for (i = 0; i < l; i++) {
+														el = els[i];
+														if (el.className !== "no-highlight")
+																el.innerHTML = prettyPrintOne(el.innerHTML, el.className);
+												}
+										} },
+										{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+										{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+										{ src: 'plugin/catnip/catnip.js', async: true, condition: function() { return window.parent !== window; } },
+										{ src: 'plugin/repl/ace/ace.js', async: true },
+										{ src: 'plugin/repl/typescript.js', async: true },
+										{ src: 'plugin/repl/repl.js', async: true }
+										// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+								]
+						});
+
+				</script>
+
+		</body>
+</html>
